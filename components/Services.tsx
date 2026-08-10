@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, Sparkles, Home, ExternalLink, Calendar } from "lucide-react";
-import { serviceCategories, clinicInfo } from "@/lib/data";
+import { Clock, Sparkles, Home, ArrowRight } from "lucide-react";
+import { serviceCategories } from "@/lib/data";
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState(serviceCategories[0].id);
@@ -17,7 +17,7 @@ export default function Services() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF4F3] border border-[#C8E2DE] text-[#3F7E75] text-xs font-bold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#4F9A8F]" />
-            Реальный Прайс-лист DIKIDI
+            Прайс-лист услуг
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#22282B] tracking-tight">
             Услуги и стоимость приёма
@@ -111,14 +111,11 @@ export default function Services() {
                   </div>
 
                   <a
-                    href={clinicInfo.dikidiUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors duration-200 shadow-sm"
+                    href="#contact"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors duration-200 shadow-sm"
                   >
-                    <Calendar className="w-4 h-4" />
-                    Записаться на DIKIDI
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    Записаться на процедуру
+                    <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>

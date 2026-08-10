@@ -7,7 +7,6 @@ import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import CareGuidelines from "@/components/CareGuidelines";
 import Testimonials from "@/components/Testimonials";
-import CTABanner from "@/components/CTABanner";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import CallButton from "@/components/CallButton";
@@ -24,7 +23,6 @@ export default function Home() {
       <WhyChooseUs />
       <CareGuidelines />
       <Testimonials />
-      <CTABanner />
       <ContactForm />
       <Footer />
       <CallButton />

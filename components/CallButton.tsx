@@ -25,17 +25,16 @@ export default function CallButton() {
             </div>
 
             <a
-              href={clinicInfo.dikidiUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
+              onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 p-2.5 rounded-2xl bg-[#EBF4F3] hover:bg-[#4F9A8F] text-[#3F7E75] hover:text-white transition-colors group"
             >
               <div className="w-9 h-9 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center shrink-0">
                 <Calendar className="w-4 h-4" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xs font-bold group-hover:text-white">DIKIDI Онлайн</span>
-                <span className="text-[11px] opacity-80">Выбрать время</span>
+                <span className="text-xs font-bold group-hover:text-white">Записаться на приём</span>
+                <span className="text-[11px] opacity-80">Заполнить форму</span>
               </div>
             </a>
 

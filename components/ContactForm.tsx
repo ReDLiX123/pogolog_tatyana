@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, MapPin, Clock, Send, CheckCircle2, MessageCircle, ExternalLink, Calendar, Mail } from "lucide-react";
+import { Phone, MapPin, Clock, Send, CheckCircle2, MessageCircle, ExternalLink, Mail } from "lucide-react";
 import { clinicInfo, serviceCategories } from "@/lib/data";
 
 export default function ContactForm() {
@@ -15,9 +15,7 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect to DIKIDI online booking or show success modal
-    console.log("Form data:", formData);
-    window.open(clinicInfo.dikidiUrl, "_blank");
+    console.log("Submit form:", formData);
     setSubmitted(true);
   };
 
@@ -36,7 +34,7 @@ export default function ContactForm() {
             Свяжитесь с Татьяной Оксанычевой
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#5A656B]">
-            Выберите удобный канал связи, записайтесь через DIKIDI или оставьте заявку в форме.
+            Заполните форму записи ниже или напишите нам в удобный мессенджер.
           </p>
         </div>
 
@@ -148,20 +146,6 @@ export default function ContactForm() {
                   <span className="text-xs font-bold">OK.ru</span>
                 </a>
               </div>
-
-              {/* DIKIDI Banner link */}
-              <a
-                href={clinicInfo.dikidiUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 flex items-center justify-between p-3.5 rounded-2xl bg-[#EBF4F3] border border-[#C8E2DE] text-[#3F7E75] font-bold text-xs hover:bg-[#4F9A8F] hover:text-white transition-colors group"
-              >
-                <span className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  Онлайн-форма записи DIKIDI
-                </span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
             </div>
           </div>
 
@@ -173,25 +157,22 @@ export default function ContactForm() {
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#22282B]">
-                  Переход к форме записи DIKIDI...
+                  Заявка принята!
                 </h3>
                 <p className="text-sm text-[#5A656B] max-w-md mx-auto">
-                  Если форма DIKIDI не открылась автоматически, нажмите кнопку ниже для выбора удобного времени приёма.
+                  Спасибо за обращение. Мы свяжемся с вами по номеру <span className="font-bold text-[#22282B]">{formData.phone}</span> в ближайшее время для подтверждения записи.
                 </p>
-                <a
-                  href={clinicInfo.dikidiUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors"
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4 px-6 py-2.5 rounded-full text-xs font-bold text-[#4F9A8F] bg-[#EBF4F3] hover:bg-[#4F9A8F] hover:text-white transition-colors"
                 >
-                  Открыть DIKIDI
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+                  Отправить еще одну заявку
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <h3 className="text-2xl font-bold text-[#22282B]">
-                  Быстрая запись на приём
+                  Форма записи на приём
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -256,14 +237,13 @@ export default function ContactForm() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-2xl text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-md shadow-[#4F9A8F]/25 hover:shadow-lg active:scale-98 flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-2xl text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-md shadow-[#4F9A8F]/25 hover:shadow-lg active:scale-98"
                 >
-                  <Calendar className="w-5 h-5" />
-                  Перейти к записи на DIKIDI
+                  Записаться на консультацию
                 </button>
 
                 <p className="text-[11px] text-[#5A656B] text-center">
-                  Нажимая кнопку, вы перейдете в форму DIKIDI и соглашаетесь на обработку персональных данных.
+                  Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
                 </p>
               </form>
             )}

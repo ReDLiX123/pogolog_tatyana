@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, Phone, Sparkles, Star, Home, Calendar, ExternalLink } from "lucide-react";
+import { Shield, Phone, Sparkles, Star, Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { clinicInfo } from "@/lib/data";
 
@@ -92,14 +92,10 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2"
             >
               <a
-                href={clinicInfo.dikidiUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-lg shadow-[#4F9A8F]/25 hover:shadow-xl hover:scale-[1.02] active:scale-95"
+                href="#contact"
+                className="inline-flex items-center justify-center px-7 py-4 rounded-full text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-lg shadow-[#4F9A8F]/25 hover:shadow-xl hover:scale-[1.02] active:scale-95"
               >
-                <Calendar className="w-5 h-5" />
-                Записаться на DIKIDI
-                <ExternalLink className="w-4 h-4" />
+                Записаться на приём
               </a>
 
               <a
@@ -162,18 +158,18 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Floating Badge 2: Home Visit */}
+              {/* Floating Badge 2: Experience */}
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-[#E5DCD0]/60 flex items-center gap-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center">
-                  <Home className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold">
+                  12+
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#22282B]">Выезд на дом</div>
-                  <div className="text-[11px] text-[#5A656B]">При сложных случаях</div>
+                  <div className="text-xs font-bold text-[#22282B]">12+ лет практики</div>
+                  <div className="text-[11px] text-[#5A656B]">г. Иркутск</div>
                 </div>
               </motion.div>
             </motion.div>

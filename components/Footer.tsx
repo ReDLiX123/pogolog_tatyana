@@ -1,4 +1,4 @@
-import { Phone, MapPin, Clock, Send, MessageCircle, ExternalLink, Calendar, Star } from "lucide-react";
+import { Phone, MapPin, Clock, Send, MessageCircle, ExternalLink, Star } from "lucide-react";
 import { clinicInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -107,7 +107,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Прайс-лист DIKIDI
+                  Прайс-лист услуг
                 </a>
               </li>
               <li>
@@ -151,13 +151,10 @@ export default function Footer() {
 
             <div className="pt-2">
               <a
-                href={clinicInfo.dikidiUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors"
               >
-                <Calendar className="w-3.5 h-3.5" />
-                Онлайн-запись DIKIDI
+                Записаться на приём
               </a>
             </div>
           </div>
