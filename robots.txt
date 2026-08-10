@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://redlix123.github.io/pogolog_tatyana/sitemap.xml
