@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,885,t=>{t.q("/pogolog_tatyana/_next/static/media/hero.0vteqjdzw_8l9.jpg")}]);
