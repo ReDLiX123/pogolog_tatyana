@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #22282b;
+    --sage: #4f9a8f;
+    --sage-dark: #3f7e75;
+    --sage-light: #ebf4f3;
+    --sage-border: #c8e2de;
+    --warm-bg: #faf7f2;
+    --warm-card: #f4efe6;
+    --charcoal: #22282b;
+    --muted: #5a656b;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-manrope), var(--font-inter), system-ui, sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Infinite Marquee Keyframe */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Swiper pagination and navigation styles */
+.swiper-pagination-bullet-active {
+  background-color: #4f9a8f !important;
+  width: 24px !important;
+  border-radius: 9999px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #4f9a8f !important;
+  background-color: #ffffff;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e5dcd0;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 18px !important;
+  font-weight: bold;
 }
