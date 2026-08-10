@@ -31,6 +31,18 @@ export default function Header() {
     { name: "Контакты", href: "#contact" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    setTimeout(() => {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -134,7 +146,7 @@ export default function Header() {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="text-base font-semibold text-[#22282B] hover:text-[#4F9A8F] py-2 border-b border-gray-100 transition-colors"
                   >
                     {link.name}
@@ -153,7 +165,7 @@ export default function Header() {
 
                 <a
                   href="#contact"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, "#contact")}
                   className="flex items-center justify-center w-full py-3 rounded-xl text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors shadow-sm"
                 >
                   Записаться на приём

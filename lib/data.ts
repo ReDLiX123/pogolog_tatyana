@@ -81,7 +81,7 @@ export const clinicInfo: ClinicInfo = {
   phone: "+7 902 560-90-73",
   phoneRaw: "+79025609073",
   email: "podologiarf@gmail.com",
-  telegram: "https://t.me/podologia38",
+  telegram: "https://t.me/Pedikurpodologia38",
   whatsapp: "https://wa.me/79025609073",
   maxMessenger: "https://max.ru/u/f9LHodD0cOKukTyqmUkh-6mcqJ2qF0lTYlbYU4gvacfRruo-RjPpEiMAdOA",
   odnoklassniki: "https://ok.ru/group/70000000993544",
