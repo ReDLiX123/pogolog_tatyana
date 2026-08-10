@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { Shield, Phone, Sparkles, CheckCircle2, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { clinicInfo } from "@/lib/data";
-import heroImg from "@/public/images/hero.jpg";
+
+const basePath = "/pogolog_tatyana";
 
 export default function Hero() {
   const headlineText = "Здоровые стопы и ногти без боли и рецидивов";
@@ -136,12 +136,10 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
             >
-              <Image
-                src={heroImg}
+              <img
+                src={`${basePath}/images/hero.jpg`}
                 alt="Кабинет центра подологии ПодоПрофи"
-                fill
-                priority
-                className="object-cover object-center"
+                className="w-full h-full object-cover object-center"
               />
 
               {/* Floating Badge 1: Experience */}
