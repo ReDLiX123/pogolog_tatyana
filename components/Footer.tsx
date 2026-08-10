@@ -1,4 +1,4 @@
-import { ShieldCheck, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { Phone, MapPin, Clock, Send, MessageCircle, ExternalLink, Calendar, Star } from "lucide-react";
 import { clinicInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -9,11 +9,11 @@ export default function Footer() {
           {/* Col 1: Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold text-xl">
-                ПП
+              <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold text-lg">
+                ТО
               </div>
-              <span className="font-bold text-2xl tracking-tight text-white">
-                {clinicInfo.name}
+              <span className="font-bold text-xl tracking-tight text-white">
+                Подолог Т. Оксанычева
               </span>
             </div>
 
@@ -21,7 +21,7 @@ export default function Footer() {
               {clinicInfo.tagline}
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-2 flex flex-wrap items-center gap-2.5">
               <a
                 href={clinicInfo.telegram}
                 target="_blank"
@@ -51,36 +51,46 @@ export default function Footer() {
               >
                 <Send className="w-4 h-4" />
               </a>
+
+              <a
+                href={clinicInfo.odnoklassniki}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#EE8208] transition-colors"
+                aria-label="Одноклассники"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
           {/* Col 2: Services Quick Links */}
           <div>
-            <h4 className="text-base font-bold text-white mb-4">Направления</h4>
+            <h4 className="text-base font-bold text-white mb-4">Основные услуги</h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li>
                 <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Лечение вросшего ногтя
+                  Аппаратный педикюр
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Титановая нить и коррекция
+                  Установка скоб при вросшем ногте
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Зачистка при грибке ногтей
+                  Зачистка при микозе ногтей
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Медицинский педикюр
+                  Выезд на дом по Иркутску
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Уход при диабетической стопе
+                  Изготовление ортезов
                 </a>
               </li>
             </ul>
@@ -88,16 +98,21 @@ export default function Footer() {
 
           {/* Col 3: Navigation */}
           <div>
-            <h4 className="text-base font-bold text-white mb-4">Разделы сайта</h4>
+            <h4 className="text-base font-bold text-white mb-4">Навигация</h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li>
+                <a href="#about" className="hover:text-[#4F9A8F] transition-colors">
+                  О специалисте
+                </a>
+              </li>
+              <li>
                 <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Услуги и цены
+                  Прайс-лист DIKIDI
                 </a>
               </li>
               <li>
                 <a href="#why-us" className="hover:text-[#4F9A8F] transition-colors">
-                  Стандарты и лицензия
+                  Стандарты СанПиН
                 </a>
               </li>
               <li>
@@ -107,12 +122,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#testimonials" className="hover:text-[#4F9A8F] transition-colors">
-                  Отзывы пациентов
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-[#4F9A8F] transition-colors">
-                  Запись на приём
+                  Отзывы (5.0 ★ 2ГИС)
                 </a>
               </li>
             </ul>
@@ -138,6 +148,18 @@ export default function Footer() {
               <Clock className="w-4 h-4 text-[#4F9A8F] shrink-0 mt-0.5" />
               <span>{clinicInfo.workHours}</span>
             </div>
+
+            <div className="pt-2">
+              <a
+                href={clinicInfo.dikidiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors"
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                Онлайн-запись DIKIDI
+              </a>
+            </div>
           </div>
         </div>
 
@@ -147,8 +169,8 @@ export default function Footer() {
             © {new Date().getFullYear()} {clinicInfo.fullName}. Все права защищены.
           </div>
           <div className="flex items-center gap-1.5 text-gray-400">
-            <ShieldCheck className="w-4 h-4 text-[#4F9A8F]" />
-            <span>Лицензия на осуществление медицинской деятельности № {clinicInfo.licenseNumber}</span>
+            <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+            <span>Рейтинг 5.0 ★ (112 оценок / 107 отзывов на 2ГИС Иркутск)</span>
           </div>
         </div>
       </div>

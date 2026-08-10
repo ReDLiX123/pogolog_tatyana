@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustMarquee from "@/components/TrustMarquee";
+import AboutDoctor from "@/components/AboutDoctor";
 import TrustStats from "@/components/TrustStats";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -17,6 +18,7 @@ export default function Home() {
       <Header />
       <Hero />
       <TrustMarquee />
+      <AboutDoctor />
       <TrustStats />
       <Services />
       <WhyChooseUs />

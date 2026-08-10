@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phone, Menu, X, ShieldCheck, MapPin } from "lucide-react";
+import { Phone, Menu, X, Star, MapPin, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { clinicInfo } from "@/lib/data";
 
@@ -23,9 +23,10 @@ export default function Header() {
   }, []);
 
   const navLinks = [
+    { name: "О специалисте", href: "#about" },
     { name: "Услуги и цены", href: "#services" },
-    { name: "Почему мы", href: "#why-us" },
-    { name: "Памятка пациенту", href: "#guidelines" },
+    { name: "Почему выбирают нас", href: "#why-us" },
+    { name: "Памятка", href: "#guidelines" },
     { name: "Отзывы", href: "#testimonials" },
     { name: "Контакты", href: "#contact" },
   ];
@@ -42,22 +43,22 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold text-xl shadow-sm group-hover:bg-[#3F7E75] transition-colors">
-              ПП
+            <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold text-lg shadow-sm group-hover:bg-[#3F7E75] transition-colors">
+              ТО
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xl tracking-tight text-[#22282B] group-hover:text-[#4F9A8F] transition-colors">
-                {clinicInfo.name}
+              <span className="font-bold text-lg sm:text-xl tracking-tight text-[#22282B] group-hover:text-[#4F9A8F] transition-colors">
+                Подолог Т. Оксанычева
               </span>
               <span className="text-xs text-[#5A656B] flex items-center gap-1 font-medium">
-                <ShieldCheck className="w-3 h-3 text-[#4F9A8F]" />
-                Центр подологии · Иркутск
+                <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                5.0 ★ 2ГИС · Иркутск
               </span>
             </div>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -70,7 +71,7 @@ export default function Header() {
           </nav>
 
           {/* Desktop Right Actions */}
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-5">
             <div className="flex flex-col items-end">
               <a
                 href={`tel:${clinicInfo.phoneRaw}`}
@@ -80,14 +81,17 @@ export default function Header() {
                 {clinicInfo.phone}
               </a>
               <span className="text-[11px] text-[#5A656B] flex items-center gap-1">
-                <MapPin className="w-3 h-3 text-[#4F9A8F]" /> ул. Степана Разина, 27
+                <MapPin className="w-3 h-3 text-[#4F9A8F]" /> ул. Красного Восстания, 20
               </span>
             </div>
 
             <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-sm hover:shadow-md active:scale-95"
+              href={clinicInfo.dikidiUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all shadow-sm hover:shadow-md active:scale-95"
             >
+              <Calendar className="w-4 h-4" />
               Записаться
             </a>
           </div>
@@ -151,11 +155,14 @@ export default function Header() {
                 </a>
 
                 <a
-                  href="#contact"
+                  href={clinicInfo.dikidiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center w-full py-3 rounded-xl text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors shadow-sm"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors shadow-sm"
                 >
-                  Записаться на приём
+                  <Calendar className="w-4 h-4" />
+                  Онлайн-запись DIKIDI
                 </a>
               </div>
             </div>

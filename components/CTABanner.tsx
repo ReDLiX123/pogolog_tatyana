@@ -1,4 +1,4 @@
-import { Phone, Shield, Calendar, Sparkles } from "lucide-react";
+import { Phone, Shield, Calendar, Sparkles, ExternalLink } from "lucide-react";
 import { clinicInfo } from "@/lib/data";
 
 export default function CTABanner() {
@@ -13,23 +13,27 @@ export default function CTABanner() {
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              Специальное предложение
+              Забота о вашем здоровье
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
-              Запишитесь на первичный осмотр подолога со скидкой 100%
+              Бесплатная консультация и диагностика стоп при записи на процедуру
             </h2>
 
             <p className="text-base sm:text-lg text-white/90 font-normal max-w-2xl mx-auto">
-              Консультация и компьютерная диагностика состояния стоп предоставляется бесплатно при проведении любой процедуры в день обращения.
+              Татьяна Оксанычева проведёт осмотр, определит причину дискомфорта и составит индивидуальный план восстановления ногтей и стоп.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <a
-                href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-bold text-[#22282B] bg-white hover:bg-[#FAF7F2] transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+                href={clinicInfo.dikidiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-[#22282B] bg-white hover:bg-[#FAF7F2] transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
               >
-                Записаться на приём
+                <Calendar className="w-5 h-5 text-[#4F9A8F]" />
+                Онлайн-запись DIKIDI
+                <ExternalLink className="w-4 h-4 text-[#4F9A8F]" />
               </a>
 
               <a
@@ -43,10 +47,10 @@ export default function CTABanner() {
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-white/80 font-medium">
               <span className="flex items-center gap-1.5">
-                <Shield className="w-4 h-4 text-amber-300" /> Медицинская лицензия
+                <Shield className="w-4 h-4 text-amber-300" /> 100% Стерильность СанПиН
               </span>
               <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-amber-300" /> Приём без ожидания в очереди
+                <Calendar className="w-4 h-4 text-amber-300" /> Приём без очередей по записи
               </span>
             </div>
           </div>

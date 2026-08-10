@@ -17,13 +17,13 @@ export default function Testimonials() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#C8E2DE] text-[#3F7E75] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#4F9A8F]" />
-            Реальные истории
+            Реальные впечатления
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#22282B] tracking-tight">
-            Отзывы наших пациентов
+            Отзывы о Татьяне Оксанычевой
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#5A656B]">
-            Более 380 положительных оценок в независимых сервисах Яндекс и 2ГИС Иркутска.
+            Подтвержденный рейтинг 5.0 ★ на карточке 2ГИС Иркутск (112 оценок и 107 реальных отзывов).
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function Testimonials() {
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#4F9A8F]" />
                       </div>
                       <div className="text-xs text-[#5A656B]">
-                        {item.age} {item.role ? `· ${item.role}` : ""}
+                        {item.source || "2ГИС Иркутск"}
                       </div>
                     </div>
                     <span className="text-[11px] text-[#5A656B]">{item.date}</span>

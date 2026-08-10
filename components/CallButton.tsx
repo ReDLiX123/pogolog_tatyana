@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, MessageCircle, Send, X, MessageSquarePlus } from "lucide-react";
+import { Phone, MessageCircle, Send, X, Calendar, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { clinicInfo } from "@/lib/data";
 
@@ -18,17 +18,32 @@ export default function CallButton() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="mb-4 bg-white/95 backdrop-blur-md rounded-3xl p-4 shadow-2xl border border-[#E5DCD0]/80 space-y-3 min-w-[220px]"
+            className="mb-4 bg-white/95 backdrop-blur-md rounded-3xl p-4 shadow-2xl border border-[#E5DCD0]/80 space-y-2.5 min-w-[240px]"
           >
             <div className="text-xs font-bold text-[#5A656B] uppercase tracking-wider px-2 pb-1 border-b border-gray-100">
-              Быстрая связь:
+              Запись и консультация:
             </div>
+
+            <a
+              href={clinicInfo.dikidiUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-2.5 rounded-2xl bg-[#EBF4F3] hover:bg-[#4F9A8F] text-[#3F7E75] hover:text-white transition-colors group"
+            >
+              <div className="w-9 h-9 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center shrink-0">
+                <Calendar className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-bold group-hover:text-white">DIKIDI Онлайн</span>
+                <span className="text-[11px] opacity-80">Выбрать время</span>
+              </div>
+            </a>
 
             <a
               href={`tel:${clinicInfo.phoneRaw}`}
               className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-[#FAF7F2] transition-colors group"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-[#22282B] text-white flex items-center justify-center shrink-0">
                 <Phone className="w-4 h-4" />
               </div>
               <div className="flex flex-col">
@@ -43,27 +58,12 @@ export default function CallButton() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-[#FAF7F2] transition-colors group"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#0088cc] text-white flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-[#0088cc] text-white flex items-center justify-center shrink-0">
                 <Send className="w-4 h-4" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-bold text-[#22282B] group-hover:text-[#0088cc]">Telegram</span>
-                <span className="text-[11px] text-[#5A656B]">Онлайн-консультация</span>
-              </div>
-            </a>
-
-            <a
-              href={clinicInfo.maxMessenger}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-[#FAF7F2] transition-colors group"
-            >
-              <div className="w-9 h-9 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center">
-                <MessageSquarePlus className="w-4 h-4" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xs font-bold text-[#22282B] group-hover:text-[#4F9A8F]">Чат в Max</span>
-                <span className="text-[11px] text-[#5A656B]">Канал записи</span>
+                <span className="text-[11px] text-[#5A656B]">t.me/podologia38</span>
               </div>
             </a>
 
@@ -73,12 +73,42 @@ export default function CallButton() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-[#FAF7F2] transition-colors group"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#25D366] text-white flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0">
                 <MessageCircle className="w-4 h-4" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-bold text-[#22282B] group-hover:text-[#25D366]">WhatsApp</span>
-                <span className="text-[11px] text-[#5A656B]">Быстрый ответ</span>
+                <span className="text-[11px] text-[#5A656B]">Написать в чат</span>
+              </div>
+            </a>
+
+            <a
+              href={clinicInfo.maxMessenger}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-[#FAF7F2] transition-colors group"
+            >
+              <div className="w-9 h-9 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center shrink-0">
+                <Send className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-bold text-[#22282B] group-hover:text-[#4F9A8F]">Max Messenger</span>
+                <span className="text-[11px] text-[#5A656B]">Оставить заявку</span>
+              </div>
+            </a>
+
+            <a
+              href={clinicInfo.odnoklassniki}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-2.5 rounded-2xl hover:bg-[#FAF7F2] transition-colors group"
+            >
+              <div className="w-9 h-9 rounded-xl bg-[#EE8208] text-white flex items-center justify-center shrink-0">
+                <ExternalLink className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-bold text-[#22282B] group-hover:text-[#EE8208]">Одноклассники</span>
+                <span className="text-[11px] text-[#5A656B]">Группа OK.ru</span>
               </div>
             </a>
           </motion.div>
@@ -91,7 +121,6 @@ export default function CallButton() {
         className="relative w-14 h-14 rounded-full bg-[#4F9A8F] text-white shadow-xl flex items-center justify-center hover:bg-[#3F7E75] transition-all duration-300 active:scale-90 focus:outline-none group"
         aria-label="Связаться с нами"
       >
-        {/* Continuous Pulsing Glow Ring */}
         <span className="absolute -inset-1 rounded-full bg-[#4F9A8F] opacity-40 animate-ping pointer-events-none" />
 
         {isOpen ? (

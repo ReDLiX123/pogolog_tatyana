@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, Phone, Sparkles, CheckCircle2, Award } from "lucide-react";
+import { Shield, Phone, Sparkles, Star, Home, Calendar, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { clinicInfo } from "@/lib/data";
 
@@ -8,7 +8,7 @@ const isProd = process.env.NODE_ENV === "production";
 const heroImageSrc = isProd ? "/pogolog_tatyana/images/hero.jpg" : "/images/hero.jpg";
 
 export default function Hero() {
-  const headlineText = "Здоровые стопы и ногти без боли и рецидивов";
+  const headlineText = "Заботьтесь о своих стопах — подология от 2 000 ₽";
   const words = headlineText.split(" ");
 
   const containerVariants = {
@@ -48,7 +48,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF4F3] border border-[#C8E2DE] text-[#3F7E75] text-xs font-bold uppercase tracking-wider"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#4F9A8F]" />
-              Центр подологии в Иркутске
+              Практика подологии Татьяны Оксанычевой
             </motion.div>
 
             {/* Headline with word stagger animation */}
@@ -63,7 +63,7 @@ export default function Hero() {
                   key={index}
                   variants={wordVariants}
                   className={
-                    word.toLowerCase().includes("боли") || word.toLowerCase().includes("здоровые")
+                    word.toLowerCase().includes("подология") || word.toLowerCase().includes("стопах")
                       ? "inline-block mr-2.5 text-[#4F9A8F]"
                       : "inline-block mr-2.5 text-[#22282B]"
                   }
@@ -80,8 +80,8 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-base sm:text-lg text-[#5A656B] leading-relaxed max-w-2xl font-normal"
             >
-              Решаем сложные эстетические и медицинские проблемы ногтей и стоп за 1–3 приёма. 
-              Без хирургического вмешательства, с полной стерильностью и деликатной заботой о вашем комфорте.
+              Решение проблем вросших ногтей, скобы, зачистка микозов и аппаратный педикюр в Иркутске. 
+              Бережный приём в кабинете на ул. Красного Восстания, 20 или с выездом на дом.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -92,10 +92,14 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2"
             >
               <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-7 py-4 rounded-full text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-lg shadow-[#4F9A8F]/25 hover:shadow-xl hover:scale-[1.02] active:scale-95"
+                href={clinicInfo.dikidiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-lg shadow-[#4F9A8F]/25 hover:shadow-xl hover:scale-[1.02] active:scale-95"
               >
-                Записаться на приём
+                <Calendar className="w-5 h-5" />
+                Записаться на DIKIDI
+                <ExternalLink className="w-4 h-4" />
               </a>
 
               <a
@@ -115,16 +119,16 @@ export default function Hero() {
               className="pt-6 border-t border-[#E5DCD0]/70 w-full flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm font-medium text-[#5A656B]"
             >
               <div className="flex items-center gap-1.5">
+                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <span>5.0 ★ на 2ГИС (112 отзывов)</span>
+              </div>
+              <div className="flex items-center gap-1.5">
                 <Shield className="w-4 h-4 text-[#4F9A8F]" />
-                <span>Лицензия Минздрава</span>
+                <span>СанПиН стерильность</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Award className="w-4 h-4 text-[#4F9A8F]" />
-                <span>9 лет практики</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#4F9A8F]" />
-                <span>4 800+ пациентов</span>
+                <Home className="w-4 h-4 text-[#4F9A8F]" />
+                <span>Выезд на дом по Иркутску</span>
               </div>
             </motion.div>
           </div>
@@ -139,37 +143,37 @@ export default function Hero() {
             >
               <img
                 src={heroImageSrc}
-                alt="Кабинет центра подологии ПодоПрофи"
+                alt="Подологический кабинет Татьяны Оксанычевой"
                 className="w-full h-full object-cover object-center"
               />
 
-              {/* Floating Badge 1: Experience */}
+              {/* Floating Badge 1: 2GIS Rating */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-[#E5DCD0]/60 flex items-center gap-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#EBF4F3] text-[#4F9A8F] flex items-center justify-center font-bold text-lg">
-                  9+
+                <div className="w-10 h-10 rounded-xl bg-amber-400 text-white flex items-center justify-center font-bold text-lg">
+                  5.0
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#22282B]">Практика с 2017 года</div>
-                  <div className="text-[11px] text-[#5A656B]">г. Иркутск</div>
+                  <div className="text-xs font-bold text-[#22282B]">112 отзывов 2ГИС</div>
+                  <div className="text-[11px] text-[#5A656B]">Иркутск</div>
                 </div>
               </motion.div>
 
-              {/* Floating Badge 2: Sterility guarantee */}
+              {/* Floating Badge 2: Home Visit */}
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-[#E5DCD0]/60 flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center">
-                  <Shield className="w-5 h-5" />
+                  <Home className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#22282B]">100% Стерильность</div>
-                  <div className="text-[11px] text-[#5A656B]">Крафт-пакеты СанПиН</div>
+                  <div className="text-xs font-bold text-[#22282B]">Выезд на дом</div>
+                  <div className="text-[11px] text-[#5A656B]">При сложных случаях</div>
                 </div>
               </motion.div>
             </motion.div>
