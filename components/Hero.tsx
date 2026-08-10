@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Shield, Phone, Sparkles, CheckCircle2, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { clinicInfo } from "@/lib/data";
+import heroImg from "@/public/images/hero.jpg";
 
 export default function Hero() {
   const headlineText = "Здоровые стопы и ногти без боли и рецидивов";
@@ -136,7 +137,7 @@ export default function Hero() {
               className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
             >
               <Image
-                src="/images/hero.jpg"
+                src={heroImg}
                 alt="Кабинет центра подологии ПодоПрофи"
                 fill
                 priority
