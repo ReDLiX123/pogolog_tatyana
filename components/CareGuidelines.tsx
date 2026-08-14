@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, XCircle, Sparkles, FileText, Info } from "lucide-react";
+import { CheckCircle2, XCircle, FileText, Info } from "lucide-react";
 import { careGuidelines } from "@/lib/data";
 
 export default function CareGuidelines() {
@@ -26,7 +26,7 @@ export default function CareGuidelines() {
             Правила подготовки и ухода
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#5A656B]">
-            Соблюдение простых рекомендаций гарантирует максимальный эффект от визита к подологу и скорейшее восстановление.
+            Простые рекомендации помогают подготовиться к визиту и правильно ухаживать за стопами после процедуры.
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function CareGuidelines() {
         <div className="mt-12 max-w-2xl mx-auto bg-[#FAF7F2] rounded-2xl p-5 border border-[#E5DCD0] flex items-center gap-3 text-xs sm:text-sm text-[#5A656B]">
           <Info className="w-5 h-5 text-[#4F9A8F] shrink-0" />
           <span>
-            После каждой процедуры подолог выдает индивидуальный печатный листок с персональными назначениями и схемой домашнего ухода.
+            После процедуры уточните у специалиста индивидуальные рекомендации по домашнему уходу и срок следующего визита.
           </span>
         </div>
       </div>

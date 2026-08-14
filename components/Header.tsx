@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu, X, Star, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { clinicInfo } from "@/lib/data";
+import { bookingUrl, clinicInfo } from "@/lib/data";
+import BrandMark from "@/components/BrandMark";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +28,6 @@ export default function Header() {
     { name: "Услуги", href: "#services" },
     { name: "Преимущества", href: "#why-us" },
     { name: "Памятка", href: "#guidelines" },
-    { name: "Отзывы", href: "#testimonials" },
     { name: "Контакты", href: "#contact" },
   ];
 
@@ -55,9 +55,7 @@ export default function Header() {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <a href="#" className="flex items-center space-x-2.5 shrink-0 group">
-            <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold text-base shadow-sm group-hover:bg-[#3F7E75] transition-colors shrink-0">
-              ТО
-            </div>
+            <BrandMark />
             <div className="flex flex-col shrink-0">
               <span className="font-bold text-base sm:text-lg tracking-tight text-[#22282B] group-hover:text-[#4F9A8F] transition-colors whitespace-nowrap">
                 Подолог Т. Оксанычева
@@ -98,7 +96,9 @@ export default function Header() {
             </div>
 
             <a
-              href="#contact"
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all shadow-sm hover:shadow-md active:scale-95 shrink-0 whitespace-nowrap"
             >
               Записаться
@@ -164,8 +164,10 @@ export default function Header() {
                 </a>
 
                 <a
-                  href="#contact"
-                  onClick={(e) => handleNavClick(e, "#contact")}
+                  href={bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center w-full py-3 rounded-xl text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors shadow-sm"
                 >
                   Записаться на приём

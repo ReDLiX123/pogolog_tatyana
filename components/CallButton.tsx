@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Phone, MessageCircle, Send, X, Calendar, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { clinicInfo } from "@/lib/data";
+import { bookingUrl, clinicInfo } from "@/lib/data";
 
 export default function CallButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,9 @@ export default function CallButton() {
             </div>
 
             <a
-              href="#contact"
+              href={bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className="flex items-center gap-3 p-2.5 rounded-2xl bg-[#EBF4F3] hover:bg-[#4F9A8F] text-[#3F7E75] hover:text-white transition-colors group"
             >

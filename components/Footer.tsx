@@ -1,5 +1,7 @@
 import { Phone, MapPin, Clock, Send, MessageCircle, ExternalLink, Star } from "lucide-react";
-import { clinicInfo } from "@/lib/data";
+import Link from "next/link";
+import { bookingUrl, clinicInfo } from "@/lib/data";
+import BrandMark from "@/components/BrandMark";
 
 export default function Footer() {
   return (
@@ -9,9 +11,7 @@ export default function Footer() {
           {/* Col 1: Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold text-lg">
-                ТО
-              </div>
+              <BrandMark />
               <span className="font-bold text-xl tracking-tight text-white">
                 Подолог Т. Оксанычева
               </span>
@@ -69,29 +69,29 @@ export default function Footer() {
             <h4 className="text-base font-bold text-white mb-4">Основные услуги</h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li>
-                <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
+                <Link href="/uslugi/apparatnyj-pedikur/" className="hover:text-[#4F9A8F] transition-colors">
                   Аппаратный педикюр
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
+                <Link href="/uslugi/korrekcionnye-skoby/" className="hover:text-[#4F9A8F] transition-colors">
                   Установка скоб при вросшем ногте
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
+                <Link href="/uslugi/vrosshij-nogot/" className="hover:text-[#4F9A8F] transition-colors">
+                  Обработка вросшего ногтя
+                </Link>
+              </li>
+              <li>
+                <Link href="/uslugi/obrabotka-mikoza/" className="hover:text-[#4F9A8F] transition-colors">
                   Зачистка при микозе ногтей
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
+                <Link href="/uslugi/podolog-na-dom/" className="hover:text-[#4F9A8F] transition-colors">
                   Выезд на дом по Иркутску
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-[#4F9A8F] transition-colors">
-                  Изготовление ортезов
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -112,17 +112,12 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#why-us" className="hover:text-[#4F9A8F] transition-colors">
-                  Стандарты СанПиН
+                  Почему выбирают Татьяну
                 </a>
               </li>
               <li>
                 <a href="#guidelines" className="hover:text-[#4F9A8F] transition-colors">
                   Памятка пациенту
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="hover:text-[#4F9A8F] transition-colors">
-                  Отзывы (5.0 ★ 2ГИС)
                 </a>
               </li>
             </ul>
@@ -151,7 +146,9 @@ export default function Footer() {
 
             <div className="pt-2">
               <a
-                href="#contact"
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors"
               >
                 Записаться на приём
@@ -162,8 +159,9 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-          <div>
+          <div className="flex flex-col items-center gap-2 sm:items-start">
             © {new Date().getFullYear()} {clinicInfo.fullName}. Все права защищены.
+            <Link href="/politika-konfidencialnosti/" className="hover:text-white hover:underline">Политика конфиденциальности</Link>
           </div>
           <div className="flex items-center gap-1.5 text-gray-400">
             <Star className="w-4 h-4 fill-amber-400 text-amber-400" />

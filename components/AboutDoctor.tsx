@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, ShieldCheck, Award, CheckCircle2, Home } from "lucide-react";
-import { clinicInfo } from "@/lib/data";
-
-const isProd = process.env.NODE_ENV === "production";
-const doctorImageSrc = isProd ? "/pogolog_tatyana/images/tatyana.jpg" : "/images/tatyana.jpg";
+import Image from "next/image";
+import { Star, ShieldCheck, Award, Home } from "lucide-react";
+import { bookingUrl, clinicInfo } from "@/lib/data";
+import doctorImage from "@/public/images/tatyana.jpg";
 
 export default function AboutDoctor() {
   return (
@@ -21,9 +20,11 @@ export default function AboutDoctor() {
               viewport={{ once: true }}
               className="relative w-full max-w-sm sm:max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
             >
-              <img
-                src={doctorImageSrc}
+              <Image
+                src={doctorImage}
                 alt="Подолог Татьяна Оксанычева"
+                fill
+                sizes="(max-width: 1023px) 100vw, 38vw"
                 className="w-full h-full object-cover object-top"
               />
 
@@ -44,10 +45,10 @@ export default function AboutDoctor() {
               {/* Floating Badge: Experience */}
               <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-[#E5DCD0]/60 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold">
-                  12+
+                  16+
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#22282B]">12+ лет опыта</div>
+                  <div className="text-xs font-bold text-[#22282B]">16+ лет опыта</div>
                   <div className="text-[11px] text-[#5A656B]">В подологии</div>
                 </div>
               </div>
@@ -66,7 +67,7 @@ export default function AboutDoctor() {
             </h2>
 
             <p className="text-lg font-semibold text-[#4F9A8F]">
-              {clinicInfo.doctorRole} (стаж более 12 лет)
+              {clinicInfo.doctorRole} (стаж более 16 лет)
             </p>
 
             <p className="text-base text-[#5A656B] leading-relaxed">
@@ -78,8 +79,8 @@ export default function AboutDoctor() {
               <div className="bg-white p-4 rounded-2xl border border-[#E5DCD0]/70 flex items-start gap-3">
                 <ShieldCheck className="w-5 h-5 text-[#4F9A8F] shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-sm font-bold text-[#22282B]">100% Стерильность</div>
-                  <div className="text-xs text-[#5A656B]">Крафт-пакеты и автоклав СанПиН</div>
+                  <div className="text-sm font-bold text-[#22282B]">Приём ежедневно</div>
+                  <div className="text-xs text-[#5A656B]">С 09:00 до 21:00 по записи</div>
                 </div>
               </div>
 
@@ -92,23 +93,12 @@ export default function AboutDoctor() {
               </div>
             </div>
 
-            {/* Certificates & Qualifications */}
-            <div className="space-y-2 pt-2">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#22282B]">
-                Специализация и квалификация:
-              </div>
-              {clinicInfo.doctorCertificates.map((cert, i) => (
-                <div key={i} className="flex items-center gap-2.5 text-sm text-[#5A656B]">
-                  <CheckCircle2 className="w-4 h-4 text-[#4F9A8F] shrink-0" />
-                  <span>{cert}</span>
-                </div>
-              ))}
-            </div>
-
             {/* Actions: Contact Form link */}
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <a
-                href="#contact"
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all shadow-md shadow-[#4F9A8F]/25 hover:scale-105 active:scale-95"
               >
                 Записаться на консультацию

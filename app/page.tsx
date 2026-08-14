@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustMarquee from "@/components/TrustMarquee";
@@ -6,10 +7,15 @@ import TrustStats from "@/components/TrustStats";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import CareGuidelines from "@/components/CareGuidelines";
-import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import CallButton from "@/components/CallButton";
+
+export const metadata: Metadata = {
+  title: "Подолог в Иркутске — Татьяна Оксанычева",
+  description: "Аппаратный педикюр, работа с вросшим ногтем, коррекционные системы и уход за проблемными стопами в Иркутске. Цены и онлайн-запись.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -22,7 +28,6 @@ export default function Home() {
       <Services />
       <WhyChooseUs />
       <CareGuidelines />
-      <Testimonials />
       <ContactForm />
       <Footer />
       <CallButton />

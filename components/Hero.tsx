@@ -2,10 +2,9 @@
 
 import { Shield, Phone, Sparkles, Star, Home } from "lucide-react";
 import { motion } from "framer-motion";
-import { clinicInfo } from "@/lib/data";
-
-const isProd = process.env.NODE_ENV === "production";
-const heroImageSrc = isProd ? "/pogolog_tatyana/images/hero.jpg" : "/images/hero.jpg";
+import Image from "next/image";
+import { bookingUrl, clinicInfo } from "@/lib/data";
+import heroImage from "@/public/images/hero.jpg";
 
 export default function Hero() {
   const headlineText = "Заботьтесь о своих стопах — подология от 2 000 ₽";
@@ -42,7 +41,7 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start space-y-6">
             {/* Eyebrow badge */}
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF4F3] border border-[#C8E2DE] text-[#3F7E75] text-xs font-bold uppercase tracking-wider"
@@ -54,7 +53,7 @@ export default function Hero() {
             {/* Headline with word stagger animation */}
             <motion.h1
               variants={containerVariants}
-              initial="hidden"
+              initial="visible"
               animate="visible"
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#22282B] tracking-tight leading-[1.15]"
             >
@@ -75,7 +74,7 @@ export default function Hero() {
 
             {/* Subheadline */}
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-base sm:text-lg text-[#5A656B] leading-relaxed max-w-2xl font-normal"
@@ -86,13 +85,15 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2"
             >
               <a
-                href="#contact"
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-4 rounded-full text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-lg shadow-[#4F9A8F]/25 hover:shadow-xl hover:scale-[1.02] active:scale-95"
               >
                 Записаться на приём
@@ -109,7 +110,7 @@ export default function Hero() {
 
             {/* Trust Badges Bar */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={false}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="pt-6 border-t border-[#E5DCD0]/70 w-full flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm font-medium text-[#5A656B]"
@@ -120,7 +121,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-1.5">
                 <Shield className="w-4 h-4 text-[#4F9A8F]" />
-                <span>СанПиН стерильность</span>
+                <span>Приём ежедневно по записи</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <Home className="w-4 h-4 text-[#4F9A8F]" />
@@ -132,14 +133,17 @@ export default function Hero() {
           {/* Right Column (45%) */}
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
             >
-              <img
-                src={heroImageSrc}
+              <Image
+                src={heroImage}
                 alt="Подологический кабинет Татьяны Оксанычевой"
+                fill
+                preload
+                sizes="(max-width: 1023px) 100vw, 42vw"
                 className="w-full h-full object-cover object-center"
               />
 
@@ -165,10 +169,10 @@ export default function Hero() {
                 className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg border border-[#E5DCD0]/60 flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#4F9A8F] text-white flex items-center justify-center font-bold">
-                  12+
+                  16+
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#22282B]">12+ лет практики</div>
+                  <div className="text-xs font-bold text-[#22282B]">16+ лет практики</div>
                   <div className="text-[11px] text-[#5A656B]">г. Иркутск</div>
                 </div>
               </motion.div>

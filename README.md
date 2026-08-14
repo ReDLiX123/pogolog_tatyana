@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Сайт практики подологии Татьяны Оксанычевой
 
-## Getting Started
+Статический сайт на Next.js 16. После сборки папку `out` можно разместить на Nginx, Apache, Cloudflare Pages, Netlify или другом хостинге статических файлов.
 
-First, run the development server:
+## Локальный запуск
 
-```bash
+```powershell
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Сайт откроется на [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production-сборка для домена
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Перед сборкой обязательно укажите полный HTTPS-адрес сайта без завершающего слеша:
 
-## Learn More
+```powershell
+$env:SITE_URL='https://example.ru'
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Готовые файлы появятся в папке `out`. Значение `SITE_URL` используется для:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- canonical URL;
+- `robots.txt`;
+- `sitemap.xml`;
+- Open Graph;
+- Schema.org JSON-LD;
+- абсолютных адресов индексируемых страниц.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Не публикуйте production-сборку с локальным значением `SITE_URL`.
 
-## Deploy on Vercel
+## Размещение на Nginx
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Корневая папка виртуального хоста должна указывать на содержимое `out`. Для маршрутов с завершающим слешем достаточно следующей схемы:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```nginx
+server {
+    listen 80;
+    server_name example.ru www.example.ru;
+    root /var/www/podolog/out;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    error_page 404 /404.html;
+}
+```
+
+HTTPS и перенаправления `http → https`, а также `www → основной домен` настраиваются на сервере после привязки домена.
+
+## Проверки перед публикацией
+
+```powershell
+npm run lint
+$env:SITE_URL='https://example.ru'
+npm run build
+```
+
+После деплоя проверьте:
+
+- `/robots.txt`;
+- `/sitemap.xml`;
+- canonical на главной и страницах услуг;
+- переходы в Dikidi;
+- Google Rich Results Test;
+- PageSpeed Insights;
+- добавление домена в Яндекс Вебмастер, Google Search Console и Bing Webmaster Tools.

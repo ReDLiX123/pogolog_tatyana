@@ -1,26 +1,7 @@
-"use client";
-
-import { useState } from "react";
-import { Phone, MapPin, Clock, Send, CheckCircle2, MessageCircle, ExternalLink, Mail } from "lucide-react";
-import { clinicInfo, serviceCategories } from "@/lib/data";
+import { Phone, MapPin, Clock, Send, MessageCircle, ExternalLink, Mail, CalendarDays } from "lucide-react";
+import { bookingUrl, clinicInfo } from "@/lib/data";
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    service: serviceCategories[0].services[0].name,
-    comment: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Submit form:", formData);
-    setSubmitted(true);
-  };
-
-  const allServices = serviceCategories.flatMap((cat) => cat.services);
-
   return (
     <section id="contact" className="py-20 lg:py-28 bg-[#FAF7F2] relative border-t border-[#E5DCD0]/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,13 +15,12 @@ export default function ContactForm() {
             Свяжитесь с Татьяной Оксанычевой
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#5A656B]">
-            Заполните форму записи ниже или напишите нам в удобный мессенджер.
+            Выберите удобный способ связи или запишитесь онлайн через Dikidi.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Contact Details & Messengers (5 cols) */}
-          <div className="lg:col-span-5 bg-white rounded-3xl p-8 shadow-sm border border-[#E5DCD0]/80 space-y-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-[#E5DCD0]/80 space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-[#22282B] mb-2">
                 {clinicInfo.name}
@@ -147,106 +127,10 @@ export default function ContactForm() {
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Right Column: Contact Form (7 cols) */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-[#E5DCD0]/80">
-            {submitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-[#EBF4F3] text-[#4F9A8F] flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-10 h-10" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#22282B]">
-                  Заявка принята!
-                </h3>
-                <p className="text-sm text-[#5A656B] max-w-md mx-auto">
-                  Спасибо за обращение. Мы свяжемся с вами по номеру <span className="font-bold text-[#22282B]">{formData.phone}</span> в ближайшее время для подтверждения записи.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 px-6 py-2.5 rounded-full text-xs font-bold text-[#4F9A8F] bg-[#EBF4F3] hover:bg-[#4F9A8F] hover:text-white transition-colors"
-                >
-                  Отправить еще одну заявку
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <h3 className="text-2xl font-bold text-[#22282B]">
-                  Форма записи на приём
-                </h3>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold text-[#22282B] uppercase tracking-wider mb-2">
-                      Ваше имя *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Иван Иванов"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-2xl border border-[#E5DCD0] bg-[#FAF7F2]/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4F9A8F] text-sm text-[#22282B]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-[#22282B] uppercase tracking-wider mb-2">
-                      Номер телефона *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+7 (902) 560-90-73"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3.5 rounded-2xl border border-[#E5DCD0] bg-[#FAF7F2]/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4F9A8F] text-sm text-[#22282B]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-[#22282B] uppercase tracking-wider mb-2">
-                    Услуга из прайс-листа
-                  </label>
-                  <select
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-2xl border border-[#E5DCD0] bg-[#FAF7F2]/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4F9A8F] text-sm text-[#22282B]"
-                  >
-                    {allServices.map((service) => (
-                      <option key={service.id} value={service.name}>
-                        {service.name} — {service.price}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-[#22282B] uppercase tracking-wider mb-2">
-                    Комментарий (опционально)
-                  </label>
-                  <textarea
-                    rows={3}
-                    placeholder="Например: нужен выезд на дом или обработка вросшего ногтя..."
-                    value={formData.comment}
-                    onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-2xl border border-[#E5DCD0] bg-[#FAF7F2]/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#4F9A8F] text-sm text-[#22282B]"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-2xl text-base font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-all duration-200 shadow-md shadow-[#4F9A8F]/25 hover:shadow-lg active:scale-98"
-                >
-                  Записаться на консультацию
-                </button>
-
-                <p className="text-[11px] text-[#5A656B] text-center">
-                  Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
-                </p>
-              </form>
-            )}
+            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#4F9A8F] px-6 py-4 font-bold text-white shadow-md shadow-[#4F9A8F]/20 transition-colors hover:bg-[#3F7E75]">
+              <CalendarDays className="h-5 w-5" />
+              <span>Записаться онлайн через Dikidi</span>
+            </a>
           </div>
         </div>
       </div>

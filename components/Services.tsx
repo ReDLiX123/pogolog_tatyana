@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Clock, Sparkles, Home, ArrowRight } from "lucide-react";
-import { serviceCategories } from "@/lib/data";
+import { bookingUrl, serviceCategories } from "@/lib/data";
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState(serviceCategories[0].id);
@@ -111,7 +111,9 @@ export default function Services() {
                   </div>
 
                   <a
-                    href="#contact"
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl text-sm font-bold text-white bg-[#4F9A8F] hover:bg-[#3F7E75] transition-colors duration-200 shadow-sm"
                   >
                     Записаться на процедуру

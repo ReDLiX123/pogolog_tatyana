@@ -1,21 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import { trustStats } from "@/lib/data";
 import { Award, ShieldCheck, Star, Home } from "lucide-react";
 
 export default function TrustStats() {
-  const [hasAnimated, setHasAnimated] = useState(false);
-
   const getIcon = (id: string) => {
     switch (id) {
       case "rating":
         return <Star className="w-6 h-6 text-current" />;
       case "exp":
         return <Award className="w-6 h-6 text-current" />;
-      case "sterile":
+      case "schedule":
         return <ShieldCheck className="w-6 h-6 text-current" />;
       case "home":
         return <Home className="w-6 h-6 text-current" />;
@@ -28,7 +24,6 @@ export default function TrustStats() {
     <section className="py-16 bg-[#FAF7F2] border-b border-[#E5DCD0]/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          onViewportEnter={() => setHasAnimated(true)}
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto justify-center"
         >
@@ -47,16 +42,7 @@ export default function TrustStats() {
                 </div>
 
                 <div className="text-3xl sm:text-4xl font-extrabold text-[#22282B] tracking-tight mb-2">
-                  {hasAnimated ? (
-                    <CountUp
-                      start={0}
-                      end={stat.value}
-                      duration={2.5}
-                      decimals={stat.value % 1 !== 0 ? 1 : 0}
-                    />
-                  ) : (
-                    <span>0</span>
-                  )}
+                  <span>{stat.value}</span>
                   <span className="text-[#4F9A8F] ml-1">{stat.suffix}</span>
                 </div>
 
