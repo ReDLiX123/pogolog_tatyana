@@ -1,2 +1,2 @@
-:HL["/_next/static/chunks/0-art61y3ni1n.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"1LRrgZu0YmbQxYeqpVyw1"}
+:HL["/pogolog_tatyana/_next/static/chunks/0-art61y3ni1n.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"wq556KLqtPLeb-cdEZUMe"}

@@ -1,5 +1,5 @@
 User-Agent: *
 Allow: /
 
-Host: http://localhost:3000/
-Sitemap: http://localhost:3000/sitemap.xml
+Host: https://redlix123.github.io/pogolog_tatyana/
+Sitemap: https://redlix123.github.io/pogolog_tatyana/sitemap.xml
