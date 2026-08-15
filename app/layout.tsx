@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     type: "website",
     siteName,
-    url: "/",
-    images: [{ url: "/images/og-cover.jpg", width: 1200, height: 630, alt: "Кабинет подолога Татьяны Оксанычевой в Иркутске" }],
+    url: absoluteUrl("/"),
+    images: [{ url: absoluteUrl("/images/og-cover.jpg"), width: 1200, height: 630, alt: "Кабинет подолога Татьяны Оксанычевой в Иркутске" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Подолог в Иркутске — Татьяна Оксанычева",
     description: "Аппаратный педикюр, работа с вросшим ногтем и уход за проблемными стопами.",
-    images: ["/images/og-cover.jpg"],
+    images: [absoluteUrl("/images/og-cover.jpg")],
   },
 };
 

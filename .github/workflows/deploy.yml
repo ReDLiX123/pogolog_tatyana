@@ -32,6 +32,9 @@ jobs:
         run: npm ci
 
       - name: Build Next.js site
+        env:
+          GITHUB_PAGES: "true"
+          SITE_URL: https://redlix123.github.io/pogolog_tatyana
         run: npm run build
 
       - name: Deploy to GitHub Pages

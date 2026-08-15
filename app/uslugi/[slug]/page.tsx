@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: PageProps<"/uslugi/[slug]">):
   return {
     title: page.title,
     description: page.description,
-    alternates: { canonical: path },
-    openGraph: { title: page.title, description: page.description, url: path, images: ["/images/og-cover.jpg"] },
+    alternates: { canonical: absoluteUrl(path) },
+    openGraph: { title: page.title, description: page.description, url: absoluteUrl(path), images: [absoluteUrl("/images/og-cover.jpg")] },
   };
 }
 

@@ -10,11 +10,12 @@ import CareGuidelines from "@/components/CareGuidelines";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import CallButton from "@/components/CallButton";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Подолог в Иркутске — Татьяна Оксанычева",
   description: "Аппаратный педикюр, работа с вросшим ногтем, коррекционные системы и уход за проблемными стопами в Иркутске. Цены и онлайн-запись.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: absoluteUrl("/") },
 };
 
 export default function Home() {

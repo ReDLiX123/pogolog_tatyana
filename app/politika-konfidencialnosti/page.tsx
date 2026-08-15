@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { clinicInfo } from "@/lib/data";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Политика конфиденциальности",
   description: "Информация об обработке данных при использовании сайта практики подологии Татьяны Оксанычевой.",
-  alternates: { canonical: "/politika-konfidencialnosti/" },
+  alternates: { canonical: absoluteUrl("/politika-konfidencialnosti/") },
 };
 
 export default function PrivacyPage() {

@@ -4,7 +4,7 @@ export const siteUrl = configuredUrl.replace(/\/$/, "");
 export const siteName = "Практика подологии Татьяны Оксанычевой";
 
 export function absoluteUrl(path = "/") {
-  return new URL(path, `${siteUrl}/`).toString();
+  return new URL(path.replace(/^\/+/, ""), `${siteUrl}/`).toString();
 }
 
 export const socialProfiles = [
